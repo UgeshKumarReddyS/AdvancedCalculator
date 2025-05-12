@@ -13,9 +13,10 @@ Responsive Design: Optimized for both desktop and mobile devices.
 Keyboard Support: Use keyboard inputs for quick calculations.
 Memory Functions: Store, recall, and clear values in memory slots.
 
-Demo
+Demo:
 Try the calculator live: https://ugeshkumarreddys.github.io/AdvancedCalculator/
-Installation
+
+Installation:-
 
 Clone the Repository:
 git clone https://github.com/UgeshKumarReddyS/AdvancedCalculator.git
