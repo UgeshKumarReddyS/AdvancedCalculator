@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Advanced Calculator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="top-bar">
+    <button id="themeToggle">🌙</button>
+    <button id="modeToggle">🧮</button>
+    <button id="conversionToggle">↔</button>
+  </div>
+  <div class="calculator" id="calculator">
+    <div class="display" id="display">0</div>
+    
+    <div class="buttons" id="basic-buttons">
+      <button class="btn-gray" onclick="clearDisplay()">AC</button>
+      <button class="btn-gray" onclick="backspace()">⌫</button>
+      <button class="btn-blue" onclick="inputConstant('pi')">π</button>
+      <button class="btn-blue" onclick="inputConstant('e')">e</button>
+      <button class="btn-orange" onclick="inputOperator('/')">÷</button>
+
+      <button class="btn-dark" onclick="appendNumber('7')">7</button>
+      <button class="btn-dark" onclick="appendNumber('8')">8</button>
+      <button class="btn-dark" onclick="appendNumber('9')">9</button>
+      <button class="btn-blue" onclick="toggleSign()">±</button>
+      <button class="btn-orange" onclick="inputOperator('*')">×</button>
+
+      <button class="btn-dark" onclick="appendNumber('4')">4</button>
+      <button class="btn-dark" onclick="appendNumber('5')">5</button>
+      <button class="btn-dark" onclick="appendNumber('6')">6</button>
+      <button class="btn-blue" onclick="scientific('round')">round</button>
+      <button class="btn-orange" onclick="inputOperator('-')">−</button>
+
+      <button class="btn-dark" onclick="appendNumber('1')">1</button>
+      <button class="btn-dark" onclick="appendNumber('2')">2</button>
+      <button class="btn-dark" onclick="appendNumber('3')">3</button>
+      <button class="btn-blue" onclick="inputBracket('(')">(</button>
+      <button class="btn-orange" onclick="inputOperator('+')">+</button>
+
+      <button class="btn-dark btn-zero" onclick="appendNumber('0')">0</button>
+      <button class="btn-dark" onclick="appendNumber('.')">.</button>
+      <button class="btn-dark" onclick="appendComma(',')">,</button>
+      <button class="btn-blue" onclick="inputBracket(')')">)</button>
+      <button class="btn-orange" onclick="calculate()">=</button>
+    </div>
+
+    <div class="buttons scientific-buttons" id="scientific-buttons">
+      <button onclick="scientific('sqrt')">√</button>
+      <button onclick="scientific('cbrt')">∴</button>
+      <button onclick="scientific('square')">x²</button>
+      <button onclick="scientific('cube')">x³</button>
+      <button onclick="scientific('reciprocal')">1/x</button>
+      
+      <button onclick="scientific('sin')">sin</button>
+      <button onclick="scientific('cos')">cos</button>
+      <button onclick="scientific('tan')">tan</button>
+      <button onclick="scientific('asin')">sin⁻¹</button>
+      <button onclick="scientific('acos')">cos⁻¹</button>
+      
+      <button onclick="scientific('log')">log₁₀</button>
+      <button onclick="scientific('ln')">ln</button>
+      <button onclick="scientific('log2')">log₂</button>
+      <button onclick="scientific('logn')">logₙ</button>
+      <button onclick="scientific('abs')">|x|</button>
+      
+      <button onclick="scientific('exp')">eˣ</button>
+      <button onclick="scientific('pow10')">10ˣ</button>
+      <button onclick="scientific('pow')">xʸ</button>
+      <button onclick="scientific('degToRad')">°→rad</button>
+      <button onclick="scientific('radToDeg')">rad→°</button>
+      
+      <button onclick="scientific('factorial')">x!</button>
+      <button onclick="scientific('mod')">mod</button>
+      <button onclick="memoryOperation('store')">M+</button>
+      <button onclick="memoryOperation('recall')">MR</button>
+      <button onclick="memoryOperation('clear')">MC</button>
+    </div>
+
+    <div class="conversion-panel" id="conversion-panel">
+      <select id="category-select" onchange="updateUnits()">
+        <option value="currency">Currency</option>
+        <option value="area">Area</option>
+        <option value="data">Data</option>
+        <option value="speed">Speed</option>
+        <option value="temperature">Temperature</option>
+        <option value="time">Time</option>
+        <option value="volume">Volume</option>
+        <option value="weight">Weight</option>
+      </select>
+      <div style="display: flex; gap: 10px;">
+        <select id="from-unit"></select>
+        <button class="swap-btn" onclick="swapUnits()">↔</button>
+        <select id="to-unit"></select>
+      </div>
+      <div style="display: flex; gap: 10px;">
+        <input id="input-value" type="number" placeholder="Enter value" oninput="convert()">
+        <input id="result-value" type="text" readonly>
+      </div>
+    </div>
+
+    <div class="history">
+      <div class="history-controls">
+        <h3>History</h3>
+        <div>
+          <button onclick="copyHistory()">Copy</button>
+          <button onclick="clearHistory()">Clear</button>
+        </div>
+      </div>
+      <ul id="historyList"></ul>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/10.6.4/math.min.js"></script>
+  <script src="./script.js"></script>
+</body>
+</html>
