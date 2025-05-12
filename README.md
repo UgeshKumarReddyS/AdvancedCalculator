@@ -14,7 +14,7 @@ Keyboard Support: Use keyboard inputs for quick calculations.
 Memory Functions: Store, recall, and clear values in memory slots.
 
 Demo
-Try the calculator live: [Insert live demo link here, e.g., GitHub Pages]
+Try the calculator live: https://ugeshkumarreddys.github.io/AdvancedCalculator/
 Installation
 
 Clone the Repository:
